@@ -8,13 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Dto\" />
-    <Folder Include="Entities\" />
     <Folder Include="Enum\" />
-    <Folder Include="Interfaces\Entities\" />
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Interfaces\Repositories\" />
     <Folder Include="ValueObjects\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
