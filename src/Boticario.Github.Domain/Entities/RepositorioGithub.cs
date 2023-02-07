@@ -11,13 +11,13 @@ namespace Boticario.Github.Domain.Entities
     {
         public RepositorioGithub(string name, string language, int stars)
         {
-            Language = language;            
-            Name = name;
-            StarsCount= stars;
+            Linguagem = language;            
+            Nome = name;
+            QntEstrelas= stars;
         }
 
-        public string Name { get; private set; }
-        public string Language { get; private set; }
-        public int StarsCount { get; private set; }
+        public string Nome { get; private set; }
+        public string Linguagem { get; private set; }
+        public int QntEstrelas { get; private set; }
     }
 }

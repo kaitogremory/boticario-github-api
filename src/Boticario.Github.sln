@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{1A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{5B6D0427-055E-4DDA-B30C-37455F0C8F57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.Domain", "Boticario.Github.Domain\Boticario.Github.Domain.csproj", "{965A460F-5E03-4CC0-9AB2-54303FF7AA23}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.API", "Boticario.Github.API\Boticario.Github.API.csproj", "{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Github.Domain", "Boticario.Github.Domain\Boticario.Github.Domain.csproj", "{965A460F-5E03-4CC0-9AB2-54303FF7AA23}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{27FB65FE-12DA-48B2-B349-1D330184E050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.Infra", "Boticario.Github.Infra\Boticario.Github.Infra.csproj", "{F80C9133-5F73-4B69-90CA-14B096DA796C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Github.Infra", "Boticario.Github.Infra\Boticario.Github.Infra.csproj", "{F80C9133-5F73-4B69-90CA-14B096DA796C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.API", "Boticario.Github.API\Boticario.Github.API.csproj", "{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{965A460F-5E03-4CC0-9AB2-54303FF7AA23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{965A460F-5E03-4CC0-9AB2-54303FF7AA23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{965A460F-5E03-4CC0-9AB2-54303FF7AA23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F80C9133-5F73-4B69-90CA-14B096DA796C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F80C9133-5F73-4B69-90CA-14B096DA796C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F80C9133-5F73-4B69-90CA-14B096DA796C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F80C9133-5F73-4B69-90CA-14B096DA796C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,8 +46,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D7C36618-AF35-4660-ACD3-84BE3FF7E5DC} = {5B6D0427-055E-4DDA-B30C-37455F0C8F57}
 		{965A460F-5E03-4CC0-9AB2-54303FF7AA23} = {5B6D0427-055E-4DDA-B30C-37455F0C8F57}
-		{23F82CEF-6C6B-4B3A-85F2-0325DF2C1B5E} = {1A9A5960-5F6C-44DD-A5C2-1B9E54217FD5}
 		{F80C9133-5F73-4B69-90CA-14B096DA796C} = {27FB65FE-12DA-48B2-B349-1D330184E050}
+		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518} = {1A9A5960-5F6C-44DD-A5C2-1B9E54217FD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A92469F4-F403-4442-AB3C-54D0A6814965}
