@@ -19,7 +19,7 @@ namespace Boticario.Github.Infra.Repositories
 
             var results = list.ToList();
 
-            return null;
+            return results;
         }
     }
 }
