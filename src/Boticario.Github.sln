@@ -15,7 +15,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Github.Infra", "Boticario.Github.Infra\Boticario.Github.Infra.csproj", "{F80C9133-5F73-4B69-90CA-14B096DA796C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.API", "Boticario.Github.API\Boticario.Github.API.csproj", "{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Github.API", "Boticario.Github.API\Boticario.Github.API.csproj", "{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A7DDB98-9166-4728-80F4-6F19527FEDFB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

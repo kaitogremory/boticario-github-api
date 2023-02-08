@@ -17,7 +17,7 @@ namespace Boticario.Github.Infra.Map
             {
                 map.AutoMap();
                 map.SetIgnoreExtraElements(true);
-                map.MapIdMember(map => map.Id);
+                map.UnmapMember(map => map.Id);                
             });
 
             BsonClassMap.RegisterClassMap<RepositorioGithub>(map =>

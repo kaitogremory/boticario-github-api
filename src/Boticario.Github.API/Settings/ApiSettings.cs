@@ -1,4 +1,4 @@
-﻿namespace Boticario.Github.API
+﻿namespace Boticario.Github.API.Settings
 {
     public class ApiSettings
     {

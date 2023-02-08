@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using Boticario.Github.API.Mappings;
+using Boticario.Github.API.Settings;
+using Boticario.Github.Application.Interfaces;
+using Boticario.Github.Application.Services;
 using Boticario.Github.Domain.Entities;
 using Boticario.Github.Domain.Interfaces.Repositories;
 using Boticario.Github.Domain.Interfaces.Services;
@@ -20,6 +23,8 @@ namespace Boticario.Github.API.Setups.ServiceCollectionExtensions
             #region Services
 
             builder.Services.AddScoped<IBoticarioService, BoticarioService>();
+            builder.Services.AddScoped<IHttpRestService, HttpRestService>();
+            builder.Services.AddScoped<IGithubService, GithubService>();
 
             #endregion
 
