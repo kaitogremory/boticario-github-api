@@ -9,11 +9,11 @@ namespace Boticario.Github.Domain.Entities
 {
     public class RepositorioGithub : EntityBase
     {
-        public RepositorioGithub(string name, string language, int stars)
+        public RepositorioGithub(string nome, string linguagem, int qntEstrelas)
         {
-            Linguagem = language;            
-            Nome = name;
-            QntEstrelas= stars;
+            Linguagem = linguagem;            
+            Nome = nome;
+            QntEstrelas= qntEstrelas;
         }
 
         public string Nome { get; private set; }

@@ -15,7 +15,7 @@ namespace Boticario.Github.Domain.Services
 
         public IEnumerable<RepositorioGithub> ListarTodosOsRepositorios()
         {
-            throw new NotImplementedException();
+            return _boticarioRepository.ListarTodosOsRepositorios();
         }
     }
 }

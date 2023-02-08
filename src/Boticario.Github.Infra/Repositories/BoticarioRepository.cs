@@ -15,8 +15,11 @@ namespace Boticario.Github.Infra.Repositories
 
         public IEnumerable<RepositorioGithub> ListarTodosOsRepositorios()
         {
-            var list = _context.Collection.Find(null).ToList();
-            return list;
+            var list = _context.Collection.Find(_ => true);
+
+            var results = list.ToList();
+
+            return null;
         }
     }
 }
