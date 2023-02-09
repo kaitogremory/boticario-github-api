@@ -23,7 +23,7 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
 
         if (repositorios.Any())
         {
-            var result = mapper.Map<IEnumerable<RepositorioGithubViewModel>>(repositorios);
+            var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(repositorios);
 
             return Results.Ok(result);
         }
@@ -38,18 +38,17 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
     }
 });
 
-app.MapGet("/boticario/buscarRepositoriosGithubAPI",
+app.MapGet("/boticario/listReposFromGithubAPI",
 async (IGithubService githubService, ILogger<Program> logger, IMapper mapper) =>
 {
     try
     {
         var response = await Task.Run(() => githubService.ListReposFromGithubAPI());
 
-        if (response != null)
+        if (response.Any())
         {
-            //var result = mapper.Map<IEnumerable<RepositorioGithubViewModel>>(repositorios);
-
-            return Results.Ok(response);
+            var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(response);
+            return Results.Ok(result);
         }
 
         return Results.NotFound();

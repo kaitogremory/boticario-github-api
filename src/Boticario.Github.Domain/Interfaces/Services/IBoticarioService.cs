@@ -9,6 +9,6 @@ namespace Boticario.Github.Domain.Interfaces.Services
 {
     public interface IBoticarioService
     {
-        IEnumerable<RepositorioGithub> ListarTodosOsRepositorios();
+        IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios();
     }
 }

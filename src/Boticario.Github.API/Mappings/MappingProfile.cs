@@ -8,7 +8,8 @@ namespace Boticario.Github.API.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<RepositorioGithub, RepositorioGithubViewModel>();            
+            CreateMap<GithubLanguageRepo, GithubLanguageRepoViewModel>();
+            CreateMap<GithubRepo, GithubRepoViewModel>();
         }
     }
 }

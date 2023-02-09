@@ -23,9 +23,9 @@ namespace Boticario.Github.Application.Services
             _httpRestService = service;
         }
 
-        public IEnumerable<GithubAPIResponse> ListReposFromGithubAPI()
-        {
-            var result = new List<GithubAPIResponse>();
+        public IEnumerable<GithubLanguageRepo> ListReposFromGithubAPI()
+        {            
+            var resultList = new List<GithubLanguageRepo>();
 
             string searchQuery = _config.GetSection("GithubSettings").GetSection("searchQuery").Value;
             string searchQueryConditions = _config.GetSection("GithubSettings").GetSection("searchQueryConditions").Value;
@@ -36,10 +36,12 @@ namespace Boticario.Github.Application.Services
             foreach (string language in languageList)
             {
                 string url = string.Format("{0}{1}{2}", searchQuery, language, searchQueryConditions);
-                result.Add(_httpRestService.Get(url).Result);
+                GithubAPIResponse response = _httpRestService.Get(url).Result;
+
+                resultList.Add(new GithubLanguageRepo(response));
             }
-            
-            return result;
+                        
+            return resultList;
         }
     }
 }

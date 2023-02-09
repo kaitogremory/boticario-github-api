@@ -8,6 +8,6 @@ namespace Boticario.Github.Domain.Interfaces.Entities.Base
 {
     public interface IEntityBase
     {
-        public Guid BaseId { get; }
+        public Guid Id { get; }
     }
 }

@@ -19,7 +19,7 @@ namespace Boticario.Github.Infra.Map
                 map.SetIgnoreExtraElements(true);                         
             });
 
-            BsonClassMap.RegisterClassMap<RepositorioGithub>(map =>
+            BsonClassMap.RegisterClassMap<GithubLanguageRepo>(map =>
             {
                 map.AutoMap();
                 map.SetIgnoreExtraElements(true);

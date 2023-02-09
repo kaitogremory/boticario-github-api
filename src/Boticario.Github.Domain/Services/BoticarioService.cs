@@ -13,7 +13,7 @@ namespace Boticario.Github.Domain.Services
             _boticarioRepository = repository;
         }
 
-        public IEnumerable<RepositorioGithub> ListarTodosOsRepositorios()
+        public IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios()
         {
             return _boticarioRepository.ListarTodosOsRepositorios();
         }

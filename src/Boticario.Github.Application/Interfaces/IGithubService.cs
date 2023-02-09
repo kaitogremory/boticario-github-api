@@ -9,6 +9,6 @@ namespace Boticario.Github.Application.Interfaces
 {
     public interface IGithubService
     {
-        IEnumerable<GithubAPIResponse> ListReposFromGithubAPI();
+        IEnumerable<GithubLanguageRepo> ListReposFromGithubAPI();
     }
 }
