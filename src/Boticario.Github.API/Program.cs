@@ -43,7 +43,7 @@ async (IGithubService githubService, ILogger<Program> logger, IMapper mapper) =>
 {
     try
     {
-        var response = await Task.Run(() => githubService.ListarTodosOsRepositorios());
+        var response = await Task.Run(() => githubService.ListReposFromGithubAPI());
 
         if (response != null)
         {

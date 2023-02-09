@@ -11,9 +11,9 @@ namespace Boticario.Github.Domain.Entities.Base
     {
         protected EntityBase()
         {
-            Id = Guid.NewGuid();
+            BaseId = Guid.NewGuid();
         }
 
-        public Guid Id { get; }
+        public Guid BaseId { get; }
     }
 }

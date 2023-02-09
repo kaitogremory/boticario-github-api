@@ -9,13 +9,14 @@ namespace Boticario.Github.Domain.Entities
 {
     public class RepositorioGithub : EntityBase
     {
-        public RepositorioGithub(string nome, string linguagem, int qntEstrelas)
+        public RepositorioGithub(int id, string nome, string linguagem, int qntEstrelas)
         {
+            Id = id;
             Linguagem = linguagem;            
             Nome = nome;
             QntEstrelas= qntEstrelas;
         }
-
+        public int Id { get; set; }
         public string Nome { get; private set; }
         public string Linguagem { get; private set; }
         public int QntEstrelas { get; private set; }

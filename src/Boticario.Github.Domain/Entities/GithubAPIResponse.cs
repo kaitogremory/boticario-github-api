@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Boticario.Github.Domain.Entities.Base;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Globalization;
 
@@ -8,6 +9,8 @@ namespace Boticario.Github.Domain.Entities
     {
         [JsonProperty("items")]
         public Item[] Items { get; set; }
+
+        public string Language { get; set; }
     }
 
     public partial class Item
