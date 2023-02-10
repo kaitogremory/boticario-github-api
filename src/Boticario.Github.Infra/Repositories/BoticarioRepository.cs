@@ -6,20 +6,27 @@ namespace Boticario.Github.Infra.Repositories
 {
     public class BoticarioRepository : IBoticarioRepository
     {
-        protected readonly IMongoContext<GithubLanguageRepo> _context;
+        protected readonly IMongoContext<GithubRepo> _context;
 
-        public BoticarioRepository(IMongoContext<GithubLanguageRepo> context)
+        public BoticarioRepository(IMongoContext<GithubRepo> context)
         {
             _context = context;
+        }                             
+
+        public async void ClearCollection()
+        {
+            await _context.Collection.DeleteManyAsync(Builders<GithubRepo>.Filter.Empty);
+        }
+        public async void InsertManyGithubModel(List<GithubRepo> modelList)
+        {
+            await _context.Collection.InsertManyAsync(modelList);
         }
 
-        public IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios()
+        public List<GithubRepo> ListGithubReposFromDb()
         {
             var list = _context.Collection.Find(_ => true);
 
-            var results = list.ToList();
-
-            return results;
+            return list.ToList();            
         }
     }
 }

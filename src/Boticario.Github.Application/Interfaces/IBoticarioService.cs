@@ -9,9 +9,10 @@ namespace Boticario.Github.Application.Interfaces
 {
     public interface IBoticarioService
     {
-        IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios();
-        void UpdateListReposFromGithubAPI();
-
         List<GithubLanguageRepo> ListReposFromGithubAPI();
+        void ClearCollection();
+        void InsertManyGithubModel(List<GithubLanguageRepo> languageReposList);
+        void UpdateListReposFromGithubAPI();
+        List<GithubRepo> ListGithubReposFromDb();
     }
 }

@@ -1,11 +1,8 @@
 ﻿using Boticario.Github.Domain.Entities.Base;
 using Boticario.Github.Notifications;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 
 namespace Boticario.Github.Domain.Entities
 {
@@ -36,16 +33,16 @@ namespace Boticario.Github.Domain.Entities
         public override void Validate()
         {
             Notes.Clear();
-            var x = new DateTime();
-            Test(string.IsNullOrWhiteSpace(Name), new Description("Nome inválido", NotificationLevel.Critical));
-            Test(string.IsNullOrWhiteSpace(FullName), new Description("Nome Completo inválido", NotificationLevel.Critical));
-            Test(string.IsNullOrWhiteSpace(Description), new Description("Descrição inválida", NotificationLevel.Critical));
-            Test(string.IsNullOrWhiteSpace(Language), new Description("Linguagem inválida", NotificationLevel.Critical));
-            Test(string.IsNullOrWhiteSpace(Owner), new Description("Dono inválido", NotificationLevel.Critical));
-            Test(StartsCount <= 0, new Description($"StartsCount {StartsCount} é inválido", NotificationLevel.Critical));
-            Test(ForksCount <= 0, new Description($"ForksCount {ForksCount} é inválido", NotificationLevel.Critical));
-            Test(CreatedAt == new DateTime(), new Description("Data de criação é inválida", NotificationLevel.Critical));
-            Test(UpdatedAt == new DateTime() || CreatedAt > UpdatedAt, new Description("Data de atualização é inválida", NotificationLevel.Critical));            
+            
+            Test(string.IsNullOrWhiteSpace(Name), new Description("Name is invalid", NotificationLevel.Critical));
+            Test(string.IsNullOrWhiteSpace(FullName), new Description("FullName is invalid", NotificationLevel.Critical));
+            Test(string.IsNullOrWhiteSpace(Description), new Description("Description is invalid", NotificationLevel.Critical));
+            Test(string.IsNullOrWhiteSpace(Language), new Description("Language is invalid", NotificationLevel.Critical));
+            Test(string.IsNullOrWhiteSpace(Owner), new Description("Owner is invalid", NotificationLevel.Critical));
+            Test(StartsCount <= 0, new Description($"StartsCount {StartsCount} is invalid", NotificationLevel.Critical));
+            Test(ForksCount <= 0, new Description($"ForksCount {ForksCount} is invalid", NotificationLevel.Critical));
+            Test(CreatedAt == new DateTime(), new Description("CreatedAt is invalid", NotificationLevel.Critical));
+            Test(UpdatedAt == new DateTime() || CreatedAt > UpdatedAt, new Description("UpdatededAt is invalid", NotificationLevel.Critical));            
         }
     }
 }

@@ -2,13 +2,6 @@
 using Boticario.Github.Domain.Entities;
 using Boticario.Github.Domain.Interfaces.Repositories;
 using Boticario.Github.Domain.Interfaces.Services;
-using Boticario.Github.Domain.Services;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Boticario.Github.Application.Services
 {
@@ -23,24 +16,49 @@ namespace Boticario.Github.Application.Services
             _githubService = githubService;
         }
 
-        public IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios()
+        public List<GithubLanguageRepo> ListReposFromGithubAPI()
         {
-            return _boticarioRepository.ListarTodosOsRepositorios();
+            try
+            {
+                return _githubService.ListReposFromGithubAPI().ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
+        public void ClearCollection()
+        {
+            try
+            {
+                _boticarioRepository.ClearCollection();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void InsertManyGithubModel(List<GithubLanguageRepo> languageReposList)
+        {
+            try
+            {
+                languageReposList.ForEach(languageRepo => _boticarioRepository.InsertManyGithubModel(languageRepo.Repositories));                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+                
         public void UpdateListReposFromGithubAPI()
         {            
             try
             {
-                List<GithubLanguageRepo> repositorieList = ListReposFromGithubAPI();
-
-                foreach (var _languageRepo in repositorieList)
-                {
-                    foreach (var _repo in _languageRepo.Repositories)
-                    {
-
-                    }
-                }
+                List<GithubLanguageRepo> repositorieList = this.ListReposFromGithubAPI();
+                this.ClearCollection();
+                this.InsertManyGithubModel(repositorieList);
             }
             catch (Exception)
             {
@@ -48,20 +66,16 @@ namespace Boticario.Github.Application.Services
             }            
         }
 
-        public List<GithubLanguageRepo> ListReposFromGithubAPI()
+        public List<GithubRepo> ListGithubReposFromDb()
         {
-            List<GithubLanguageRepo> repositorieList = new();
             try
             {
-                repositorieList = _githubService.ListReposFromGithubAPI().ToList();
-
+                return _boticarioRepository.ListGithubReposFromDb();
             }
             catch (Exception)
             {
                 throw;
-            }
-
-            return repositorieList;
+            }            
         }
     }
 }

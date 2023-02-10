@@ -16,16 +16,16 @@ var environment = app.Environment;
 app.UseRouting()   
    .UseExceptionHandling(environment);
 
-app.MapGet("/boticario/getRepositorios", 
+app.MapGet("/boticario/getRepositories", 
 async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapper) =>
 {
     try
     {                
-        var repositorios = await Task.Run(() => boticarioService.ListarTodosOsRepositorios());
+        var repositorios = await Task.Run(() => boticarioService.ListGithubReposFromDb());
 
         if (repositorios.Any())
         {
-            var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(repositorios);            
+            var result = mapper.Map<IEnumerable<GithubRepoViewModel>>(repositorios);            
 
             return Results.Ok(result);
         }

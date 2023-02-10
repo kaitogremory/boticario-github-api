@@ -9,6 +9,8 @@ namespace Boticario.Github.Domain.Interfaces.Repositories
 {
     public interface IBoticarioRepository
     {
-        IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios();
+        void ClearCollection();
+        void InsertManyGithubModel(List<GithubRepo> modelList);
+        List<GithubRepo> ListGithubReposFromDb();                        
     }
 }

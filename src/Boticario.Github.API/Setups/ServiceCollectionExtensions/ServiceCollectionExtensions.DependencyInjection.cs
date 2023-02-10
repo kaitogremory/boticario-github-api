@@ -54,7 +54,7 @@ namespace Boticario.Github.API.Setups.ServiceCollectionExtensions
             #region Repositories
 
             builder.Services.AddScoped<IBoticarioRepository, BoticarioRepository>();
-            builder.Services.AddScoped<IMongoContext<GithubLanguageRepo>>(option => new MongoContext<GithubLanguageRepo>(options.Database.ConnectionString, options.Database.Name, options.Database.CollectionName));
+            builder.Services.AddScoped<IMongoContext<GithubRepo>>(option => new MongoContext<GithubRepo>(options.Database.ConnectionString, options.Database.Name, options.Database.CollectionName));
 
             #endregion
 
