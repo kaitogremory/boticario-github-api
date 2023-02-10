@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boticario.Github.Domain.Interfaces.Services
+namespace Boticario.Github.Application.Interfaces
 {
     public interface IBoticarioService
     {
         IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios();
+        bool UpdateListReposFromGithubAPI();
     }
 }

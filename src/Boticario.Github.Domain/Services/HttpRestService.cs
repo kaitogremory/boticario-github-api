@@ -21,9 +21,9 @@ namespace Boticario.Github.Domain.Services
             _token = TokenToBase64();
         }
 
-        public async Task<GithubAPIResponse> Get(string url)
-        {            
-            GithubAPIResponse? result = null;
+        public async Task<string> GetByUrl(string url)
+        {
+            string result;
 
             using (HttpClient client = new HttpClient { BaseAddress = new Uri(_baseUrl) })
             {
@@ -33,9 +33,7 @@ namespace Boticario.Github.Domain.Services
                 using (HttpResponseMessage response = client.GetAsync(url).Result)
                 {
                     response.EnsureSuccessStatusCode();
-                    var responseStr = await response.Content.ReadAsStringAsync();
-                    result = JsonConvert.DeserializeObject<GithubAPIResponse>(responseStr);
-                    result.Language = result.Items.First().Language;
+                    result = await response.Content.ReadAsStringAsync();                    
                 }                
             }
 

@@ -4,9 +4,9 @@ namespace Boticario.Github.Domain.Entities
 {
     public class GithubLanguageRepo : EntityBase
     {
-        public GithubLanguageRepo(GithubAPIResponse response)
+        public GithubLanguageRepo(GithubAPIResponse response, string language)
         {
-            Language = response.Items.First().Language;
+            Language = language;
             Repositories = new();
             response.Items.ToList().ForEach(repo => { Repositories.Add(new GithubRepo(repo)); });
         }

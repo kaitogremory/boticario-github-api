@@ -1,16 +1,10 @@
-﻿using Boticario.Github.Application.Interfaces;
-using Boticario.Github.Domain.Entities;
+﻿using Boticario.Github.Domain.Entities;
 using Boticario.Github.Domain.Interfaces.Repositories;
 using Boticario.Github.Domain.Interfaces.Services;
-using Boticario.Github.Domain.Services;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace Boticario.Github.Application.Services
+namespace Boticario.Github.Domain.Services
 {
     public class GithubService : IGithubService
     {
@@ -18,13 +12,13 @@ namespace Boticario.Github.Application.Services
         private readonly IConfiguration _config;
 
         public GithubService(IHttpRestService service, IConfiguration config)
-        {            
+        {
             _config = config;
             _httpRestService = service;
         }
 
         public IEnumerable<GithubLanguageRepo> ListReposFromGithubAPI()
-        {            
+        {
             var resultList = new List<GithubLanguageRepo>();
 
             string searchQuery = _config.GetSection("GithubSettings").GetSection("searchQuery").Value;
@@ -34,13 +28,13 @@ namespace Boticario.Github.Application.Services
             List<string> languageList = concatedlanguageList.Split(",").ToList();
 
             foreach (string language in languageList)
-            {
-                string url = string.Format("{0}{1}{2}", searchQuery, language, searchQueryConditions);
-                GithubAPIResponse response = _httpRestService.Get(url).Result;
+            {                
+                var result = _httpRestService.GetByUrl(string.Format("{0}{1}{2}", searchQuery, language, searchQueryConditions)).Result;
+                GithubAPIResponse response = JsonConvert.DeserializeObject<GithubAPIResponse>(result);
 
-                resultList.Add(new GithubLanguageRepo(response));
+                resultList.Add(new GithubLanguageRepo(response, language));
             }
-                        
+
             return resultList;
         }
     }

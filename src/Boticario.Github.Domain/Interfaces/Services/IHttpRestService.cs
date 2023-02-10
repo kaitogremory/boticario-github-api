@@ -9,6 +9,6 @@ namespace Boticario.Github.Domain.Interfaces.Services
 {
     public interface IHttpRestService
     {
-        Task<GithubAPIResponse> Get(string url);
+        Task<string> GetByUrl(string url);
     }
 }
