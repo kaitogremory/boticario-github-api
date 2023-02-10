@@ -28,21 +28,24 @@ namespace Boticario.Github.Application.Services
             return _boticarioRepository.ListarTodosOsRepositorios();
         }
 
-        public bool UpdateListReposFromGithubAPI()
-        {
-            bool result = false;
-
-            List<GithubLanguageRepo> repositorieList = _githubService.ListReposFromGithubAPI().ToList();
-
-            foreach (var _languageRepo in repositorieList)
+        public void UpdateListReposFromGithubAPI()
+        {            
+            try
             {
-                foreach (var _repo in _languageRepo.Repositories)
-                {
+                List<GithubLanguageRepo> repositorieList = _githubService.ListReposFromGithubAPI().ToList();
 
+                foreach (var _languageRepo in repositorieList)
+                {
+                    foreach (var _repo in _languageRepo.Repositories)
+                    {
+
+                    }
                 }
             }
-
-            return result;
+            catch (Exception)
+            {
+                throw;
+            }            
         }
     }
 }

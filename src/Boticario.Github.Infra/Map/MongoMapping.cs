@@ -1,5 +1,6 @@
 ﻿using Boticario.Github.Domain.Entities;
 using Boticario.Github.Domain.Entities.Base;
+using Boticario.Github.Notifications;
 using MongoDB.Bson.Serialization;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,23 @@ namespace Boticario.Github.Infra.Map
             {
                 map.AutoMap();
                 map.SetIgnoreExtraElements(true);
-            });            
+            });
+
+            BsonClassMap.RegisterClassMap<Notifiable>(map =>
+            {
+                map.AutoMap();
+                map.SetIgnoreExtraElements(true);
+                map.UnmapMember(m => m.Notes);
+            });
+
+            BsonClassMap.RegisterClassMap<Note>(map =>
+            {
+                map.AutoMap();
+                map.SetIgnoreExtraElements(true);
+                map.UnmapMember(m => m.Errors);
+                map.UnmapMember(m => m.Warnings);
+                map.UnmapMember(m => m.Informations);
+            });
         }
     }
 }

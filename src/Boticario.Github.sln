@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Github.Notifications", "Boticario.Github.Notifications\Boticario.Github.Notifications.csproj", "{0B725027-5928-45CA-A4B2-357B4AAFE505}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B725027-5928-45CA-A4B2-357B4AAFE505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B725027-5928-45CA-A4B2-357B4AAFE505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B725027-5928-45CA-A4B2-357B4AAFE505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B725027-5928-45CA-A4B2-357B4AAFE505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{965A460F-5E03-4CC0-9AB2-54303FF7AA23} = {5B6D0427-055E-4DDA-B30C-37455F0C8F57}
 		{F80C9133-5F73-4B69-90CA-14B096DA796C} = {27FB65FE-12DA-48B2-B349-1D330184E050}
 		{436C1A3D-C39D-43AA-A2F4-B740C0EF1518} = {1A9A5960-5F6C-44DD-A5C2-1B9E54217FD5}
+		{0B725027-5928-45CA-A4B2-357B4AAFE505} = {5B6D0427-055E-4DDA-B30C-37455F0C8F57}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A92469F4-F403-4442-AB3C-54D0A6814965}

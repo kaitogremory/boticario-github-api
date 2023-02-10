@@ -23,8 +23,7 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
 
         if (repositorios.Any())
         {
-            var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(repositorios);
-            //var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(response);
+            var result = mapper.Map<IEnumerable<GithubLanguageRepoViewModel>>(repositorios);            
 
             return Results.Ok(result);
         }
@@ -44,19 +43,12 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
 {
     try
     {
-        var response = await Task.Run(() => boticarioService.UpdateListReposFromGithubAPI());
-
-        if (response)
-        {            
-            return Results.Ok();
-        }
-
-        return Results.Problem();
+        await Task.Run(() => boticarioService.UpdateListReposFromGithubAPI());
+        return Results.Ok();                
     }
     catch (Exception ex)
     {
         logger.LogError($"Erro ao processar a requisição - ", ex);
-
         return Results.BadRequest(new ErrorViewModel($"Erro ao processar a requisição", ex));
     }
 });
