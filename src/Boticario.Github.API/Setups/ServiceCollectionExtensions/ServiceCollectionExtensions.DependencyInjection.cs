@@ -11,9 +11,11 @@ using Boticario.Github.Infra;
 using Boticario.Github.Infra.Map;
 using Boticario.Github.Infra.Repositories;
 using Microsoft.AspNetCore.Http.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Boticario.Github.API.Setups.ServiceCollectionExtensions
 {
+    [ExcludeFromCodeCoverage]
     public static partial class ServiceCollectionExtensions
     {
         public static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)

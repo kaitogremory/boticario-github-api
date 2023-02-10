@@ -2,7 +2,9 @@ using AutoMapper;
 using Boticario.Github.API.Setups.ServiceCollectionExtensions;
 using Boticario.Github.API.ViewModel;
 using Boticario.Github.Application.Interfaces;
-using Boticario.Github.Domain.Interfaces.Services;
+using System.Diagnostics.CodeAnalysis;
+
+[assembly: ExcludeFromCodeCoverage]
 
 var builder = WebApplication.CreateBuilder(args);
 

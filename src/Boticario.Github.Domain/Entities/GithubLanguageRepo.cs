@@ -21,8 +21,8 @@ namespace Boticario.Github.Domain.Entities
         {
             Notes.Clear();
             
-            Test(string.IsNullOrWhiteSpace(Language), new Description("Language inválido", NotificationLevel.Critical));
-            Test(Repositories.Any(x => !x.IsValid()), new Description("Repositorio inválido", NotificationLevel.Critical));            
+            Test(string.IsNullOrWhiteSpace(Language), new Description("Language is invalid", NotificationLevel.Critical));
+            Test(Repositories.Any(x => !x.IsValid()), new Description("Repositorie is invalid", NotificationLevel.Critical));            
         }
     }    
 }

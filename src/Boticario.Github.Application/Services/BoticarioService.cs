@@ -32,7 +32,7 @@ namespace Boticario.Github.Application.Services
         {            
             try
             {
-                List<GithubLanguageRepo> repositorieList = _githubService.ListReposFromGithubAPI().ToList();
+                List<GithubLanguageRepo> repositorieList = ListReposFromGithubAPI();
 
                 foreach (var _languageRepo in repositorieList)
                 {
@@ -46,6 +46,22 @@ namespace Boticario.Github.Application.Services
             {
                 throw;
             }            
+        }
+
+        public List<GithubLanguageRepo> ListReposFromGithubAPI()
+        {
+            List<GithubLanguageRepo> repositorieList = new();
+            try
+            {
+                repositorieList = _githubService.ListReposFromGithubAPI().ToList();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return repositorieList;
         }
     }
 }

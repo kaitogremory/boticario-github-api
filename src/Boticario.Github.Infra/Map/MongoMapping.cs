@@ -2,14 +2,11 @@
 using Boticario.Github.Domain.Entities.Base;
 using Boticario.Github.Notifications;
 using MongoDB.Bson.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Boticario.Github.Infra.Map
 {
+    [ExcludeFromCodeCoverage]
     public class MongoMapping
     {
         public static void Configure()

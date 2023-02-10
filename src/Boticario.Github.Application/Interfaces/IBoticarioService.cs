@@ -11,5 +11,7 @@ namespace Boticario.Github.Application.Interfaces
     {
         IEnumerable<GithubLanguageRepo> ListarTodosOsRepositorios();
         void UpdateListReposFromGithubAPI();
+
+        List<GithubLanguageRepo> ListReposFromGithubAPI();
     }
 }
