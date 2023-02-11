@@ -1,10 +1,6 @@
-﻿using Boticario.Github.Domain.Entities;
-using Boticario.Github.Domain.Interfaces.Services;
+﻿using Boticario.Github.Domain.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
-using static System.Net.WebRequestMethods;
 
 namespace Boticario.Github.Domain.Services
 {
@@ -27,7 +23,7 @@ namespace Boticario.Github.Domain.Services
 
             using (HttpClient client = new HttpClient { BaseAddress = new Uri(_baseUrl) })
             {
-                client.DefaultRequestHeaders.Add("User-Agent", "BotiGitHubTest2");
+                client.DefaultRequestHeaders.Add("User-Agent", "BotiGitHubTest");
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", _token);
 
                 using (HttpResponseMessage response = client.GetAsync(url).Result)
@@ -42,10 +38,15 @@ namespace Boticario.Github.Domain.Services
 
         public string TokenToBase64()
         {
-            return Convert.ToBase64String(
+            string token = string.Format("{0}{1}", 
+                _config.GetSection("GithubSettings").GetSection("tokenFirstPart").Value,
+                _config.GetSection("GithubSettings").GetSection("tokenSecondPart").Value);
+                
+            string base64Token = Convert.ToBase64String(
                     System.Text.Encoding.ASCII.GetBytes(
-                    string.Format("{0}:{1}", "", _config.GetSection(
-                    "GithubSettings").GetSection("token").Value)));
+                    string.Format("{0}:{1}", String.Empty, token)));
+
+            return base64Token;
         }
 
         public string GetBaseUrl() => _config.GetSection("GithubSettings").GetSection("baseUrl").Value;
