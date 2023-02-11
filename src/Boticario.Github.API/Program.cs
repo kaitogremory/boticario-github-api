@@ -26,21 +26,14 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
     {                
         var repositories = await Task.Run(() => boticarioService.ListGithubReposFromDb());
 
-        if (repositories.Any())
-        {
-            if (repositories.All(x => x.IsValid()))
-                return Results.Ok(mapper.Map<IEnumerable<GithubRepoViewModel>>(repositories));
-            
-            else            
-                return Results.BadRequest(new ErrorViewModel("Invalid Data", repositories.First().Notes.Errors));            
-        }         
-
-        return Results.NotFound();
+        if (repositories.Any())                    
+            return Results.Ok(mapper.Map<IEnumerable<GithubRepoViewModel>>(repositories));            
+        else
+            return Results.NoContent();
     }
     catch (Exception ex)
     {
         logger.LogError($"Error processing the request - ", ex);
-
         return Results.BadRequest(new ErrorViewModel($"Error processing the request", ex));
     }
 });
@@ -56,7 +49,6 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
     catch (Exception ex)
     {
         logger.LogError($"Error processing the request - ", ex);
-
         return Results.BadRequest(new ErrorViewModel($"Error processing the request", ex));
     }
 });
@@ -69,7 +61,7 @@ async (string name, IBoticarioService boticarioService, ILogger<Program> logger,
         var repository = await Task.Run(() => boticarioService.GetRepoDetailByName(name));
 
         if(repository == null)        
-            return Results.NotFound();
+            return Results.NoContent();
         
         else if (!repository.IsValid())
             return Results.BadRequest(new ErrorViewModel("Invalid Data", repository.Notes.Errors));                
@@ -79,7 +71,21 @@ async (string name, IBoticarioService boticarioService, ILogger<Program> logger,
     catch (Exception ex)
     {
         logger.LogError($"Error processing the request - ", ex);
+        return Results.BadRequest(new ErrorViewModel($"Error processing the request", ex));
+    }
+});
 
+app.MapDelete("/boticario/clearRepositoriesFromBase",
+async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapper) =>
+{
+    try
+    {
+        await Task.Run(() => boticarioService.ClearCollection());
+        return Results.Ok(true);
+    }
+    catch (Exception ex)
+    {
+        logger.LogError($"Error processing the request - ", ex);
         return Results.BadRequest(new ErrorViewModel($"Error processing the request", ex));
     }
 });
