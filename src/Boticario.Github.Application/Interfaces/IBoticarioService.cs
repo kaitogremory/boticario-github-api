@@ -14,5 +14,6 @@ namespace Boticario.Github.Application.Interfaces
         void InsertManyGithubModel(List<GithubLanguageRepo> languageReposList);
         void UpdateListReposFromGithubAPI();
         List<GithubRepo> ListGithubReposFromDb();
+        GithubRepo GetRepoDetailByName(string name);
     }
 }

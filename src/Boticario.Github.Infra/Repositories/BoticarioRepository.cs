@@ -16,7 +16,8 @@ namespace Boticario.Github.Infra.Repositories
         public async void ClearCollection()
         {
             await _context.Collection.DeleteManyAsync(Builders<GithubRepo>.Filter.Empty);
-        }
+        }        
+
         public async void InsertManyGithubModel(List<GithubRepo> modelList)
         {
             await _context.Collection.InsertManyAsync(modelList);
@@ -27,6 +28,13 @@ namespace Boticario.Github.Infra.Repositories
             var list = _context.Collection.Find(_ => true);
 
             return list.ToList();
+        }
+
+        public GithubRepo GetRepoDetailByName(string name)
+        {
+            var filter = Builders<GithubRepo>.Filter.Eq("Documento.Name", name);
+
+            return _context.Collection.Find(filter).First();               
         }
     }
 }

@@ -79,5 +79,17 @@ namespace Boticario.Github.Application.Services
                 throw;
             }            
         }
+
+        public GithubRepo GetRepoDetailByName(string name)
+        {
+            try
+            {
+                return _boticarioRepository.GetRepoDetailByName(name);                    
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
