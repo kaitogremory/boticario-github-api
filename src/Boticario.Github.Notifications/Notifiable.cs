@@ -8,6 +8,11 @@ namespace Boticario.Github.Notifications
 {
     public abstract class Notifiable
     {
+        public Notifiable() 
+        {
+            this.Notes = new();
+        }
+
         public Note Notes { get; private set; } = new Note();
 
         /// <summary>
@@ -23,6 +28,11 @@ namespace Boticario.Github.Notifications
 
         public bool IsValid()
         {
+            if(this.Notes == null)
+            {
+                this.Notes = new Note();
+                this.Validate();
+            }            
             return !Notes.HasErrors;
         }
 

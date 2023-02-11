@@ -32,9 +32,9 @@ namespace Boticario.Github.Infra.Repositories
 
         public GithubRepo GetRepoDetailByName(string name)
         {
-            var filter = Builders<GithubRepo>.Filter.Eq("Documento.Name", name);
+            var filter = Builders<GithubRepo>.Filter.Eq("Name", name);
 
-            return _context.Collection.Find(filter).First();               
+            return _context.Collection.Find(filter).FirstOrDefault();               
         }
     }
 }
