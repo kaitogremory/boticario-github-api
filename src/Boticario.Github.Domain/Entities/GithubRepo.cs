@@ -15,7 +15,7 @@ namespace Boticario.Github.Domain.Entities
             FullName = responseItem.FullName;
             Description= responseItem.Description;
             Owner = responseItem.Owner.Login;
-            StartsCount = (int)responseItem.StargazersCount;
+            StarsCount = (int)responseItem.StargazersCount;
             ForksCount = (int)responseItem.ForksCount;
             CreatedAt = responseItem.CreatedAt.DateTime;
             UpdatedAt = responseItem.UpdatedAt.DateTime;
@@ -25,7 +25,7 @@ namespace Boticario.Github.Domain.Entities
         public string Description { get; private set; }
         public string Language { get; private set; }
         public string Owner { get; private set; }
-        public int StartsCount { get; private set; }
+        public int StarsCount { get; private set; }
         public int ForksCount { get; set; }
         public DateTime CreatedAt { get; private set; }
         public DateTime UpdatedAt { get; private set; }
@@ -39,7 +39,7 @@ namespace Boticario.Github.Domain.Entities
             Test(string.IsNullOrWhiteSpace(Description), new Description("Description is invalid", NotificationLevel.Critical));
             Test(string.IsNullOrWhiteSpace(Language), new Description("Language is invalid", NotificationLevel.Critical));
             Test(string.IsNullOrWhiteSpace(Owner), new Description("Owner is invalid", NotificationLevel.Critical));
-            Test(StartsCount <= 0, new Description($"StartsCount {StartsCount} is invalid", NotificationLevel.Critical));
+            Test(StarsCount <= 0, new Description($"StarsCount {StarsCount} is invalid", NotificationLevel.Critical));
             Test(ForksCount <= 0, new Description($"ForksCount {ForksCount} is invalid", NotificationLevel.Critical));
             Test(CreatedAt == new DateTime(), new Description("CreatedAt is invalid", NotificationLevel.Critical));
             Test(UpdatedAt == new DateTime() || CreatedAt > UpdatedAt, new Description("UpdatededAt is invalid", NotificationLevel.Critical));            

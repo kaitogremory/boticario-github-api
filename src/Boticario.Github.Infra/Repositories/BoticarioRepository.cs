@@ -26,7 +26,7 @@ namespace Boticario.Github.Infra.Repositories
         {
             var list = _context.Collection.Find(_ => true);
 
-            return list.ToList();            
+            return list.ToList();
         }
     }
 }

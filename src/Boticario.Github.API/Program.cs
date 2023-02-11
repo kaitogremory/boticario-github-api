@@ -48,7 +48,7 @@ async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapp
     try
     {
         await Task.Run(() => boticarioService.UpdateListReposFromGithubAPI());
-        return Results.Ok();                
+        return Results.Ok(true);                
     }
     catch (Exception ex)
     {

@@ -70,7 +70,9 @@ namespace Boticario.Github.Application.Services
         {
             try
             {
-                return _boticarioRepository.ListGithubReposFromDb();
+                return _boticarioRepository.ListGithubReposFromDb()
+                    .OrderByDescending(x => x.StarsCount)
+                    .ToList();
             }
             catch (Exception)
             {
