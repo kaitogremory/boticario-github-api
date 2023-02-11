@@ -13,10 +13,12 @@ builder.AddServices();
 var app = builder.Build();
 var environment = app.Environment;
 
+app.UseCors("devCorsPolicy");
+
 app.UseRouting()   
    .UseExceptionHandling(environment);
 
-app.MapGet("/boticario/getRepositories", 
+app.MapGet("/boticario/getRepositoriesList", 
 async (IBoticarioService boticarioService, ILogger<Program> logger, IMapper mapper) =>
 {
     try

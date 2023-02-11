@@ -22,11 +22,23 @@ namespace Boticario.Github.API.Setups.ServiceCollectionExtensions
         {
             var options = builder.Configuration.GetSection("ApiSettings").Get<ApiSettings>();
 
+            #region Cors
+            var devCorsPolicy = "devCorsPolicy";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(devCorsPolicy, builder => {
+                    builder.WithOrigins("*");
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();                    
+                });
+            });
+            #endregion
+
             #region Services
 
             builder.Services.AddScoped<IBoticarioService, BoticarioService>();
             builder.Services.AddScoped<IHttpRestService, HttpRestService>();
             builder.Services.AddScoped<IGithubService, GithubService>();
+            
 
             #endregion
 
