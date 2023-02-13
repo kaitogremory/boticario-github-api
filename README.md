@@ -21,5 +21,7 @@ Aplicação desenvolvida para listar os repositórios destaque do GitHub de cinc
 Na pasta de documentação você pode encontrar o diagrama de contexto do projeto, gerado em drawio.
 
 #### Linguagens padrões
-<p>No appsettings.json as linguagens padrão são: JavaScript,Python,Java,C e PHP.</p>
+<p>No appsettings.json as linguagens padrão são: JavaScript, Python, Java, C e PHP</p>
 Sintam-se livres para testar em outras linguagens, como por exemplo TypeScript, Ruby, Swift, GO, Kotlin, PowerShell, Rust, etc
+
+Para rodar o projeto pelo VS22 é necessário ter o .Net 6 instalado, o adaptador API é o único a ser inicializado.
